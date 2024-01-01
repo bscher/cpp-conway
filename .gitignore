@@ -3,6 +3,7 @@ CMakeFiles/
 *.cmake
 CMakeCache.txt
 Makefile
+app
 
 # Prerequisites
 *.d
