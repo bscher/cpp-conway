@@ -14,7 +14,7 @@ private:
 		return (
 			x >= 0 && x < WIDTH &&
 			y >= 0 && y < HEIGHT
-			);
+		);
 	}
 
 public:
@@ -25,12 +25,16 @@ public:
 
 	template<typename TwoDimensionalArray_t>
 	void setFromObject(Index_t x, Index_t y, const TwoDimensionalArray_t& obj, bool inverseDimensions = false) {
-		for (Index_t ix = 0; ix < (sizeof(obj) / sizeof(obj[0])); ix++)
-			for (Index_t iy = 0; iy < (sizeof(obj[0]) / sizeof(obj[0][0])); iy++)
-				if (inverseDimensions)
+		for (Index_t ix = 0; ix < (sizeof(obj) / sizeof(obj[0])); ix++) {
+			for (Index_t iy = 0; iy < (sizeof(obj[0]) / sizeof(obj[0][0])); iy++) {
+				if (inverseDimensions) {
 					setState(x + ix, y + iy, obj[ix][iy]);
-				else
+				}
+				else {
 					setState(x + ix, y + iy, obj[iy][ix]);
+				}
+			}
+		}
 	}
 
 	void tick() {
@@ -76,10 +80,13 @@ public:
 
 	constexpr Count_t countLivingNeighbors(Index_t x, Index_t y) const {
 		Count_t livingNeighbors = 0;
-		for (Index_t ix = x - 1; ix <= x + 1; ix++)
-			for (Index_t iy = y - 1; iy <= y + 1; iy++)
-				if (ix != x || iy != y)
+		for (Index_t ix = x - 1; ix <= x + 1; ix++) {
+			for (Index_t iy = y - 1; iy <= y + 1; iy++) {
+				if (ix != x || iy != y) {
 					livingNeighbors += (Count_t)getState(ix, iy);
+				}
+			}
+		}
 		return livingNeighbors;
 	}
 
@@ -92,10 +99,11 @@ public:
 	void setState(Index_t x, Index_t y, bool alive) {
 		if (!isValidIndex(x, y))
 			return; // Invalid index, skip
-		if (_modifyNextBoardInstead)
+		if (_modifyNextBoardInstead) {
 			_boardNext[x][y] = alive;
-		else
+		} else {
 			_board[x][y] = alive;
+		}
 	}
 
 private:
