@@ -1,4 +1,8 @@
 .vs/
+CMakeFiles/
+*.cmake
+CMakeCache.txt
+Makefile
 
 # Prerequisites
 *.d
