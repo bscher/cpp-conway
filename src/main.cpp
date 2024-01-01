@@ -11,8 +11,8 @@
 
 #include "Examples.h"
 
-constexpr Index_t WIDTH = 100;
-constexpr Index_t HEIGHT = 30;
+constexpr Index_t WIDTH = 25;
+constexpr Index_t HEIGHT = 20;
 
 void sleep(int millis) {
 	std::this_thread::sleep_for(std::chrono::milliseconds(millis));
@@ -40,7 +40,7 @@ int main() {
 		// Render grid
 		grid.render();
 
-		sleep(250);
+		sleep(100);
 	}
 
 	return 0;
