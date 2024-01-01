@@ -22,7 +22,9 @@ int main() {
 	GameOfLife<WIDTH, HEIGHT> life;
 	ConsoleGridWriter<WIDTH, HEIGHT> grid;
 
-	life.setFromObject(2, 2, ex::spaceship_light);
+	life.setFromObject(2, 2, ex::block);
+	life.setFromObject(2, 6, ex::blinker);
+	life.setFromObject(2, 12, ex::spaceship_light);
 
 	while (true) {
 		// Tick
@@ -38,7 +40,7 @@ int main() {
 		// Render grid
 		grid.render();
 
-		sleep(500);
+		sleep(250);
 	}
 
 	return 0;
