@@ -10,12 +10,13 @@ class ConsoleGridWriter
 {
 public:
 	constexpr ConsoleGridWriter() {
-		_grid = { 0 };
+		_grid = {};
 	}
 
 	void blank() const {
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < HEIGHT; i++) {
 			std::cout << '\n';
+		}
 	}
 
 	void set(Index_t x, Index_t y, bool state) {
@@ -39,7 +40,7 @@ private:
 		return (
 			x >= 0 && x < WIDTH &&
 			y >= 0 && y < HEIGHT
-			);
+		);
 	}
 
 	Grid_t<WIDTH, HEIGHT> _grid;
